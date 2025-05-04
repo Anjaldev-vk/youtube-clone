@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isListening = false;
   final ScrollController _scrollController = ScrollController();
 
-  static const String apiKey = 'AIzaSyDhr_5AgiRmlA21tuDUNX250PgWxocuCvw';
+  static const String apiKey = 'api';//Replace with your actual API key
 
   @override
   void initState() {
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<Map<String, dynamic>> fetchVideoDetails(String videoId) async {
-    final url = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=$videoId&key=$apiKey';
+    final url = '//api';//Replace with your actual API URL
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => isLoading = true);
     try {
       final apiUrl =
-          'https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=US&maxResults=10&key=$apiKey';
+          'api'; // Replace with your actual API URL
 
       final response = await http.get(Uri.parse(apiUrl));
       if (response.statusCode == 200) {
@@ -164,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> fetchShorts() async {
     try {
       final apiUrl =
-          'https://www.googleapis.com/youtube/v3/search?part=snippet&q=shorts&type=video&maxResults=10&key=$apiKey';
+          'api'; // Replace with your actual API URL
 
       final response = await http.get(Uri.parse(apiUrl));
       if (response.statusCode == 200) {
@@ -184,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() => isLoading = true);
     try {
       final apiUrl =
-          'https://www.googleapis.com/youtube/v3/search?part=snippet&q=$keyword&type=video&maxResults=10&key=$apiKey';
+          'api'; // Replace with your actual API URL
 
       final response = await http.get(Uri.parse(apiUrl));
       if (response.statusCode == 200) {
@@ -619,7 +619,7 @@ class _HomeScreenState extends State<HomeScreen> {
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Image.asset(
-          'assets/Youtube.png', // Replace with your actual YouTube logo asset
+          'assets/Youtube.png', 
           height: 24,
         ),
       ),
@@ -861,7 +861,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   Future<List<dynamic>> fetchRelatedVideos() async {
     const apiKey = 'AIzaSyDhr_5AgiRmlA21tuDUNX250PgWxocuCvw';
     final url =
-        'https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${widget.videoId}&type=video&part=snippet&maxResults=10&key=$apiKey';
+        'api'; // Replace with your actual API URL
 
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
